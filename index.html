@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#180713">
+<title>A Little Something for You, Maa</title>
+<style>
+:root{--pink:#ff76b7;--rose:#ffb1d4}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,#54203f 0,#1b0b18 45%,#0d060d 100%);color:#fff4fa;font-family:Georgia,"Times New Roman",serif}
+button{font:inherit;cursor:pointer}
+.app{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 16px}
+.screen{display:none;width:min(900px,100%);animation:fade .4s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;color:var(--rose);font:11px Arial,sans-serif}
+h1{font-size:clamp(2.3rem,7vw,5rem);line-height:1.08;margin:18px 0;color:#fff0f7;font-weight:500}
+h2{font-size:clamp(1.8rem,5vw,3rem);font-weight:500;margin:10px 0 20px}
+p{font-size:clamp(1.02rem,2.3vw,1.2rem);line-height:1.8;color:#f6dce9}
+.center{text-align:center}
+.hero{max-width:700px;margin:auto;padding:50px 20px}
+.sub{max-width:570px;margin:0 auto 30px}
+.glow{color:var(--pink);text-shadow:0 0 24px #ff5fa777}
+.btn{border:1px solid #ff9bc9;background:linear-gradient(135deg,#ff80ba,#c93683);color:white;border-radius:999px;padding:13px 23px;box-shadow:0 8px 28px #d53d8144;transition:.2s;letter-spacing:.02em}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px #ff69ad66}
+.btn.secondary{background:transparent;border-color:#a85a82;color:#ffd6e8;box-shadow:none}
+.btnrow{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+.panel{background:linear-gradient(145deg,#2a1425ef,#180d19f2);border:1px solid #a34d7955;border-radius:26px;padding:clamp(22px,5vw,46px);box-shadow:0 24px 80px #0008}
+.photo-wrap{width:min(310px,80vw);height:320px;margin:0 auto 24px;border-radius:22px;overflow:hidden;border:1px solid #ffabd477;box-shadow:0 14px 40px #0008;background:radial-gradient(circle at 50% 35%,#a94778,#30152b 70%);display:grid;place-items:center;text-align:center;padding:20px;color:#ffd4e7;font:14px Arial,sans-serif;line-height:1.6}
+.photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;padding:0}
+.message{max-width:760px;margin:0 auto;white-space:pre-line}
+.gifts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px;margin:30px 0}
+.gift{border:1px solid #b85c8c88;border-radius:20px;background:linear-gradient(160deg,#49203b,#211020);padding:20px 9px;min-height:145px;color:#fff;transition:.2s;box-shadow:0 12px 30px #0005}
+.gift:hover{transform:translateY(-5px);border-color:#ff9ac7}
+.gift .emoji{font-size:38px;display:block;margin-bottom:12px}
+.gift span:last-child{font:12px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ffd4e7}
+.small{font:12px Arial,sans-serif;color:#c99bb4;letter-spacing:.06em}
+.divider{width:70px;height:1px;background:#e98bb6;margin:24px auto}
+.bed-scene{height:245px;position:relative;margin:10px auto 22px;max-width:620px}
+.moon{position:absolute;right:13%;top:8px;width:58px;height:58px;border-radius:50%;background:#ffe6b7;box-shadow:0 0 40px #ffe3b766}
+.bed-base{position:absolute;bottom:25px;left:7%;right:7%;height:105px;border-radius:28px 28px 18px 18px;background:linear-gradient(160deg,#f5c0d8,#a64b7c);box-shadow:0 18px 35px #0008}
+.mattress{position:absolute;bottom:82px;left:12%;right:12%;height:55px;border-radius:25px;background:#ffe4ef;box-shadow:inset 0 -8px 0 #e8a9c8}
+.pillow{position:absolute;bottom:115px;width:115px;height:43px;border-radius:20px;background:#fff3f8;box-shadow:inset 0 -5px 0 #e7bfd2}
+.pillow.one{left:18%}.pillow.two{right:18%}
+.blanket{position:absolute;bottom:25px;left:25%;right:12%;height:75px;border-radius:26px 30px 18px 18px;background:linear-gradient(135deg,#b52c75,#6d2050);border-top:3px solid #ffd1e4}
+.blanket:after{content:"♡";position:absolute;right:22px;top:15px;color:#ffd6e8;font-size:28px}
+.stars{color:#ffd9ec;letter-spacing:12px;font-size:18px;margin:12px}
+.heart{position:fixed;bottom:-30px;color:#ff83bb;opacity:0;pointer-events:none;animation:float 9s linear forwards;z-index:-1}
+@keyframes float{0%{transform:translateY(0) scale(.7);opacity:0}15%{opacity:.55}100%{transform:translateY(-110vh) translateX(45px) scale(1.3);opacity:0}}
+footer{text-align:center;color:#a77a93;font:11px Arial,sans-serif;padding:22px}
+@media(max-width:700px){.gifts{grid-template-columns:repeat(2,minmax(0,1fr))}.gift:last-child{grid-column:1/-1}.photo-wrap{height:300px}}
+@media(max-width:380px){.gifts{gap:9px}.gift{min-height:130px;padding:14px 7px}}
+</style>
+</head>
+<body>
+<main class="app">
+<section class="screen active center" id="welcome">
+ <div class="hero">
+  <div class="eyebrow">A little corner of the universe</div><div class="stars">✦ ✧ ✦</div>
+  <h1>Just for you<br><span class="glow">Maa Maa</span></h1>
+  <p class="sub">I made this little webpage for one reason to make you smile, even if it’s just for a moment. You deserve a little reminder of how special you are. ❤️</p>
+  <button class="btn" onclick="showScreen('gifts')">Okay, show me ♡</button>
+  <p class="small" style="margin-top:22px">made with lots of love, just for you</p>
+ </div>
+</section>
+<section class="screen center" id="gifts">
+ <div class="eyebrow">Five little reminders</div><h2>Open your gifts, <span class="glow">Maa</span></h2>
+ <p>Each box holds something I hope you never forget about yourself.</p>
+ <div class="gifts">
+  <button type="button" class="gift" onclick="openGift(1)"><span class="emoji">🎁</span><span>Gift one</span></button>
+  <button type="button" class="gift" onclick="openGift(2)"><span class="emoji">🎀</span><span>Gift two</span></button>
+  <button type="button" class="gift" onclick="openGift(3)"><span class="emoji">🌹</span><span>Gift three</span></button>
+  <button type="button" class="gift" onclick="openGift(4)"><span class="emoji">💗</span><span>Gift four</span></button>
+  <button type="button" class="gift" onclick="openGift(5)"><span class="emoji">✨</span><span>Gift five</span></button>
+ </div>
+ <p class="small">After reading a gift, press “Back to all gifts” to open another one. ♡</p>
+ <div class="btnrow"><button class="btn secondary" onclick="showScreen('last')">Read one last message ♡</button></div>
+</section>
+<section class="screen" id="giftpage">
+ <div class="panel center">
+  <div class="eyebrow" id="gift-label">Gift one</div>
+  <div class="photo-wrap" id="photo-wrap"><span id="photo-placeholder">Add a photo here<br><strong>assets/maa-1.jpg</strong></span><img id="gift-photo" alt="A favourite photo" hidden></div>
+  <h2 id="gift-title"></h2><div class="divider"></div>
+  <p class="message" id="gift-message"></p>
+  <div class="btnrow">
+   <button type="button" class="btn secondary" onclick="showScreen('gifts')">← Back to all gifts</button>
+   <button type="button" class="btn" id="next-gift" onclick="openNextGift()">Next gift →</button>
+   <button type="button" class="btn" id="last-button" hidden onclick="showScreen('last')">One last message ♡</button>
+  </div>
+ </div>
+</section>
+<section class="screen" id="last">
+ <div class="panel center">
+  <div class="eyebrow">One last little gift</div><h2>Rest your heart, <span class="glow">Maa</span></h2>
+  <div class="bed-scene" aria-label="A cosy illustrated bed"><div class="moon"></div><div class="mattress"></div><div class="pillow one"></div><div class="pillow two"></div><div class="bed-base"></div><div class="blanket"></div></div>
+  <p class="message">Maa I know you’ve been carrying a lot, both mentally and physically. I know some days are harder than others, but please remember that you don’t have to face every difficult moment alone. Naan irukken, Maa. Eppovume unakku support ah iruppen. ❤️
+
+Whenever you feel low, call me. Whenever something makes you happy, call me too. Enkitte pesa thayangathe, ammuchellam. I want to listen, make you smile, and help you feel a little calmer.
+
+I want you to get proper rest and feel okay. Once you’re back in your room and settled, call me. I have lots of stories to tell you, and I’ll keep talking until you feel sleepy. I hope you get a peaceful, comfortable rest.
+
+For now, take a deep breath, get cosy, and be kind to yourself. Whatever is troubling you, namma nidhanama paathukalam, seriyaa?
+
+You are not alone, Maa. I’m here to support you. I miss you so much, kunjiiii. ❤️</p>
+  <div class="btnrow"><button class="btn" onclick="showScreen('welcome')">Read it again ♡</button><button class="btn secondary" onclick="showScreen('gifts')">Back to gifts</button></div>
+ </div>
+</section>
+</main>
+<footer>For Maa Maa · made with love ♡</footer>
+<script>
+"use strict";
+const gifts = {
+1:{title:"Your beautiful soul",photo:"assets/maa-1.jpg",message:`Maa  you have such a good heart. The way you care for everyone is one of the most lovable things about you. You give so much kindness, patience, and love to the people around you, and you deserve every bit of love this universe has to offer.
+
+Unna maari ivlo manasum suthamaana oru person ah paakuradhu romba rare Maa. I have just one little wish please don’t let people hurt that beautiful heart of yours. You deserve to be treated with the same care you give everyone else.
+
+You are such a gem. Please take good care of this alagaana soul Maa. ❤️`},
+2:{title:"The way you love",photo:"assets/maa-2.jpg",message:`Maa ennakku unnoda paasam romba pudikkum. The way you love the people in your life is something truly special. You notice when they need care, you check whether they’re safe, and you protect them in your own way.
+
+Even when you get angry, that anger never seems to last long. A little while later, your affection finds its way back, and you make the people you love feel cared for all over again.
+
+I honestly don't have enough words to describe how beautiful your love is. The world needs more of that kind of kindness, Maa. Never think that the love you give goes unnoticed. ❤️`},
+3:{title:"A beauty beyond words",photo:"assets/maa-3.jpg",message:`Maa nee sathiyama semma azhaga irukka. 🥺❤️ I could look at you for a lifetime and still find new little things to admire. Your smile, your expressions, and the way your face lights up when you laugh every little detail has its own charm.
+
+No language could ever fully describe how lovely you are. Sometimes I look at you and genuinely wonder how someone can be this beautiful. I wish I could spend more time reminding you just how special you are.
+
+To me, you are breathtaking, Maa not just because of how you look, but because your beauty comes with such a lovely heart. 🌹`},
+4:{title:"Your lovely hotness",photo:"assets/maa-4.jpg",message:`Maa there is something so lovely about the confidence and warmth you bring wherever you go. ❤️ I admire your smile, your personal style, your expressions, and the way you carry yourself. Maa you are damn hot maa maa you got the best structure that made me fall in for you harder maa. Maa each of your body parts oh my god damn hot maa maa i cant control myself whenever im with you or i saw you maa even i try to eat boxes of chew gum also i cant maa maa you are soo soo soo hottie look at you maa maa damn you defined hotness maa maa ❤️
+
+I hope you always feel comfortable being yourself and never feel that you have to change to meet anyone else's expectations. You deserve to feel appreciated, respected, and confident in your own way.
+
+You are wonderful exactly as you are Maa. Never forget that. ❤️`},
+5:{title:"My precious person",photo:"assets/maa-5.jpg",message:`Maa you are one of the most precious people life has brought into mine. You have changed so many little things in my world and made me see parts of myself I didn't understand before.
+
+I love the way you care for me, treat me gently, and make me feel like I can be myself. You have a way of calming me and making me smile just by being you. I love your laugh, your voice, your stories, and the little moments when I get to admire you.
+
+I want to care for you, respect your comfort, support your dreams, and be someone you can feel safe talking to. I miss you more than I can explain Maa. I wish I could be beside you, cook something for you, help you relax, and remind you every day how special you are.
+
+You are a gem Maa. Please take care of yourself. ❤️`}
+};
+
+let currentGift = 1;
+
+function showScreen(id) {
+ const target = document.getElementById(id);
+ if (!target) return;
+ document.querySelectorAll(".screen").forEach(section => section.classList.remove("active"));
+ target.classList.add("active");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function openGift(number) {
+ if (!Object.prototype.hasOwnProperty.call(gifts, number)) return;
+ currentGift = number;
+ const gift = gifts[number];
+ const words = ["one","two","three","four","five"];
+ document.getElementById("gift-label").textContent = `Gift ${words[number-1]}`;
+ document.getElementById("gift-title").textContent = gift.title;
+ document.getElementById("gift-message").textContent = gift.message;
+
+ const img = document.getElementById("gift-photo");
+ const placeholder = document.getElementById("photo-placeholder");
+ img.hidden = true;
+ img.removeAttribute("src");
+ placeholder.hidden = false;
+ placeholder.innerHTML = `Add a photo here<br><strong>${gift.photo}</strong>`;
+ img.onload = () => { img.hidden = false; placeholder.hidden = true; };
+ img.onerror = () => { img.hidden = true; placeholder.hidden = false; };
+ img.src = gift.photo;
+
+ document.getElementById("next-gift").hidden = number === 5;
+ document.getElementById("last-button").hidden = number !== 5;
+ showScreen("giftpage");
+}
+
+function openNextGift() {
+ if (currentGift < 5) openGift(currentGift + 1);
+}
+
+let activeHearts = 0;
+setInterval(() => {
+ if (activeHearts >= 10) return;
+ const heart = document.createElement("div");
+ heart.className = "heart";
+ heart.textContent = ["♡","♥","✧"][Math.floor(Math.random()*3)];
+ heart.style.left = `${Math.random()*100}vw`;
+ heart.style.fontSize = `${14+Math.random()*18}px`;
+ heart.style.animationDuration = `${7+Math.random()*5}s`;
+ document.body.appendChild(heart);
+ activeHearts++;
+ heart.addEventListener("animationend", () => { heart.remove(); activeHearts--; }, {once:true});
+}, 1000);
+</script>
+</body>
+</html>
